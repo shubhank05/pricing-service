@@ -10,8 +10,8 @@ class Mailgun:
     FROM_EMAIL = 'shubhank.sharma@mba.christuniversity.in'
     @classmethod
     def send_mail(cls, email: List[str], subject: str, text:str, html: str)-> Response:
-        MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY', None)
-        MAILGUN_DOMAIN = os.environ.get('MAILGUN_DOMAIN', None)
+        MAILGUN_API_KEY = os.environ.get('mailgun_api_key', None)
+        MAILGUN_DOMAIN = os.environ.get('mailgun_domain', None)
         if MAILGUN_API_KEY is None:
             raise MailgunException('Failed to load Mailgun API Key')
         if MAILGUN_DOMAIN is None:

@@ -13,7 +13,9 @@ def requires_login(f: Callable)->Callable:
 def requires_admin(f: Callable)->Callable:
     @functools.wraps(f)
     def decorated_function(*args, **kwargs):
-        if session.get('email') != current_app.config.get('ADMIN',''):
+        print("123")
+        print(current_app.config.get('admin',''))
+        if session.get('email') != current_app.config.get('admin',''):
             flash('You need to be an adminstrator to access this page.', 'danger')
             return redirect(url_for('users.login_user'))
         return f(*args, **kwargs)

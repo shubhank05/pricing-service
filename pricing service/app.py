@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 app.secret_key = '12324343'
 app.config.update(
-    ADMIN = os.environ.get('ADMIN')
+    admin = os.environ.get('admin')
 )
 load_dotenv()
 print("os.eviron")
